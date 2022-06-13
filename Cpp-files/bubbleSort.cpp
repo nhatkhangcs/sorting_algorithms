@@ -1,26 +1,16 @@
-#include <bits/stdc++.h>
-using namespace std;
- 
-// An optimized version of Bubble Sort
-void bubbleSort(int arr[], int n)
-{
-   int i, j;
-   bool swapped;
-   for (i = 0; i < n-1; i++)
-   {
-     swapped = false;
-     for (j = 0; j < n-i-1; j++)
-     {
-        if (arr[j] > arr[j+1])
-        {
-           swap(arr[j], arr[j+1]);
-           swapped = true;
+void BubbleSort(vector<int> &temp, int n){
+    int curr = 0;
+    bool flag = false;
+    while (curr < n && flag == false){
+        int step = n - 1;
+        flag = true;
+        while (step > curr){
+            if (temp[step] < temp[step - 1]) {
+                flag = false;
+                swap(temp[step], temp[step - 1]);
+            }
+            step = step - 1;
         }
-     }
- 
-     // IF no two elements were swapped
-     // by inner loop, then break
-     if (swapped == false)
-        break;
-   }
+        curr = curr + 1;
+    }
 }
