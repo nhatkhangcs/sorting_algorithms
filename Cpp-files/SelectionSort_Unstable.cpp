@@ -1,21 +1,22 @@
 #include <bits/stdc++.h>
 using namespace std;
  
-void swap(int *xp, int *yp){
-    int temp = *xp;
-    *xp = *yp;
-    *yp = temp;
-}
- 
-void selectionSort(int arr[], int n){
-    int i, j, min_idx;
+void SelectionSort(vector<int> &temp, int n){
+    int current = 0;
+    int ridx = 0;
+    while(current < n - 1){
+        int walk = current + 1;
+        int min_idx = current;
+        while(walk < n){    
+            if(temp[current] > temp[walk]){
+                current = walk;
+            }
 
-    for (i = 0; i < n-1; i++){
-        min_idx = i;
-        for (j = i+1; j < n; j++)
-        if (arr[j] < arr[min_idx])
-            min_idx = j;
- 
-        swap(&arr[min_idx], &arr[i]);
+            walk++;
+        }
+        
+        swap(temp[min_idx], temp[current]);
+        current = min_idx;
+        current++;
     }
 }
